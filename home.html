@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="home.js"></script>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+}
+
+.scrollable-cell {
+	max-width: 100px;
+	overflow-x: auto;
+	white-space: nowrap; 
+}
+
+input, select {
+	padding: 8px;
+}
+
+span {
+	float: right;
+	margin: 10px;
+}
+
+table {
+	width: 100%;
+	min-width: min-content;
+	max-width: 100%;
+	text-align: center
+}
+
+form {
+	margin: 10px 0;
+}
+
+a {
+	text-decoration: none;
+	color: #007BFF;
+	margin-right: 10px;
+}
+
+button {
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	padding: 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+#paginationContainer{
+	list-style: none;
+    display: flex;
+}
+</style>
+</head>
+
+<body>
+<span id="message"></span>
+	<span id="logout"><a href="index.html">Log out >>>>></a></span>
+	<form action="register.html">
+		<button type="submit" value="add Customer">add Customer</button>
+	</form>
+	<span><button id="syncBtn" type="submit">Sync</button></span>
+	<form id="searchForm" >
+		<label for="criteria">Search Criteria:</label> <select id="criteria"
+			name="searchCriteria">
+			<option value="firstName"
+				th:selected="${session.searchCriteria == 'firstName'}">First
+				Name</option>
+			<option value="city"
+				th:selected="${session.searchCriteria == 'city'}">City</option>
+			<option value="email"
+				th:selected="${session.searchCriteria == 'email'}">Email</option>
+			<option value="phoneNumber"
+				th:selected="${session.searchCriteria == 'phoneNumber'}">Phone
+				Number</option>
+		</select><label for="searchTerm">Search Term:</label> <input type="text"
+			id="searchTerm" name="searchTerm" th:value="${session.searchTerm}"
+			required> <select id="rec" name="records">
+			<option th:selected="${records == 1}" value="1">1</option>
+			<option th:selected="${records == 5}" value="5">5</option>
+			<option th:selected="${records == 10}" value="10">10</option>
+			<option th:selected="${records == 15}" value="15">15</option>
+			<option th:selected="${records == 20}" value="20">20</option>
+		</select>
+
+		<button type="submit">Search</button>
+	</form>
+
+	<table id="customerTable">
+		<thead>
+			<tr>
+				<th class="sortable-header"data-sortOrder="ASC" data-field="id">ID</th>
+				<th class="sortable-header"data-sortOrder="ASC" data-field="firstName">First Name</th>
+				<th class="sortable-header"data-sortOrder="ASC" data-field="lastName">Last Name</th>
+				<th>Street</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<ul id="paginationContainer"></ul>
+	<script>
+		console.log(getToken())
+	</script>
+</body>
+</html>

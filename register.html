@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="register.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			display: grid;
+			justify-content: center;
+		}
+
+		.header {
+			display: flex;
+			justify-content: center;
+			font-size: 3rem;
+			font-weight: bolder;
+			color: #289cc0;
+			margin: 50px 0px 50px 0px;
+			align-content: center;
+		}
+
+		.form {
+			width: auto;
+		}
+
+		.form-grid1 {
+			display: flex;
+			gap: 20px;
+			margin-bottom: 10px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		input {
+			width: 100%;
+			padding: 8px 0px 8px 8px;
+			border: 1px solid #ffffff;
+			border-radius: 5px;
+			outline: none;
+		}
+
+		input:invalid {
+			border: 1px solid rgb(255, 0, 0);
+		}
+
+		input:valid {
+			border: 1px solid rgb(106, 255, 0);
+		}
+
+		button {
+			margin-top: 10px;
+			padding: 13px 20px;
+			background-color: rgb(0, 0, 0);
+			color: rgb(255, 255, 255);
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			width: fit-content;
+		}
+
+		button[type="submit"]:hover,
+		button[type="button"]:hover {
+			background-color: #289cc0;
+			color: #ffffff;
+		}
+
+		a {
+			text-decoration: none;
+			color: #289cc0;
+		}
+
+		.warning {
+			color: red;
+			font-size: 1rem;
+		}
+	</style>
+</head>
+
+<body>
+	<span class="header">ADD CUSTOMER</span>
+	<a href="home.html">home</a>
+	<div class="reg" id="reg">
+		<form class="form" id="form1">
+			<div class="form-grid">
+				<div>
+					<label for="firstName">First Name</label> <input type="text" id="firstName" name="firstName" required
+						placeholder="firstname" pattern="[a-zA-Z ]{1,}">
+				</div>
+				<div>
+					<label for="lastName">Last Name</label> <input type="text" id="lastName" name="lastName" required
+						placeholder="lastname" pattern="[a-zA-Z ]{1,}">
+				</div>
+				<div>
+					<label for="state">State</label> <input type="text" id="state" name="state" required
+						placeholder="state">
+				</div>
+				<div>
+					<label for="city">City</label> <input type="text" id="city" name="city" required placeholder="city">
+				</div>
+				<div>
+					<label for="street">Street</label> <input type="text" id="street" name="street" required
+						placeholder="street">
+				</div>
+				<div>
+					<label for="adress">Adress</label> <input type="text" id="adress" name="address" required
+						placeholder="address">
+				</div>
+				<div>
+					<label for="phoneNumber">Phone Number</label> <input type="text" id="phoneNumber" name="phoneNumber"
+						placeholder="6666699999" pattern="[0-9]{10,10}">
+				</div>
+				<div>
+					<label for="email">Email</label> <input type="email" id="email" name="email" required
+						placeholder="email@gmail.com">
+				</div>
+			</div>
+			<div class="form-grid1">
+				<button type="submit" value="save" name="register">Register</button>
+				<span id="errormsg" class="warning"></span>
+			</div>
+		</form>
+	</div>
+
+	
+</body>
+
+</html>
